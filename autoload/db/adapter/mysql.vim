@@ -1,3 +1,4 @@
+
 function! db#adapter#mysql#canonicalize(url) abort
   let url = substitute(a:url, '^mysql\d*:/\@!', 'mysql:///', '')
   " JDBC
@@ -28,7 +29,8 @@ function! db#adapter#mysql#interactive(url) abort
 endfunction
 
 function! db#adapter#mysql#filter(url) abort
-  return s:command_for_url(a:url) + ['-t', '--binary-as-hex']
+  " return s:command_for_url(a:url) + ['-t', '--binary-as-hex']
+    return s:command_for_url(a:url) + ['-t']
 endfunction
 
 function! db#adapter#mysql#auth_pattern() abort
